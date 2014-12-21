@@ -23,11 +23,11 @@ Catalyst::Plugin::Session::Store::CHI::CHI - The great new Catalyst::Plugin::Ses
 
 =head1 VERSION
 
-Version 0.001_001
+Version 0.001_002
 
 =cut
 
-our $VERSION = '0.001_001';
+our $VERSION = '0.001_002';
 
 =head1 SYNOPSIS
 
@@ -85,10 +85,12 @@ sub delete_session_data {
 sub delete_expired_sessions { return; }    # unsupported
 
 # Dummy method.
+## no critic (ProhibitUnusedPrivateSubroutines)
 sub _session_store_delegate {
   my ($self) = @_;
   return 1;
 }
+## use critic
 
 =item setup_session
 
