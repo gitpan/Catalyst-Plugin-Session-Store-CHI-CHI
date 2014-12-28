@@ -12,7 +12,6 @@ use CHI;
 use Path::Class     ();
 use File::Spec      ();
 use Catalyst::Utils ();
-use Data::Dumper;
 use Carp::Assert;
 
 __PACKAGE__->mk_classdata(qw/_session_chi_chi_storage/);
@@ -23,11 +22,11 @@ Catalyst::Plugin::Session::Store::CHI::CHI - The great new Catalyst::Plugin::Ses
 
 =head1 VERSION
 
-Version 0.001_002
+Version 0.001_003
 
 =cut
 
-our $VERSION = '0.001_002';
+our $VERSION = '0.001_003';
 
 =head1 SYNOPSIS
 

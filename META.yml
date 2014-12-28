@@ -3,8 +3,19 @@ abstract: 'The great new Catalyst::Plugin::Session::Store::CHI::CHI!'
 author:
   - 'Motortrak Ltd <duncan.garland@motortrak.com>'
 build_requires:
+  CHI: '0'
+  Carp::Assert: '0'
+  Catalyst: '5.8'
+  Catalyst::Model::DBIC::Schema: '0'
+  Catalyst::Plugin::Session::Store: '0'
+  Catalyst::Utils: '0'
+  Class::Data::Inheritable: '0'
+  File::Spec: '0'
   MRO::Compat: '0'
+  Moose: '0'
+  Path::Class: '0'
   Test::More: '0'
+  namespace::autoclean: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: 1
@@ -20,4 +31,4 @@ no_index:
     - inc
 requires:
   perl: '5.006'
-version: 0.001_002
+version: 0.001_003
