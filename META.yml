@@ -1,5 +1,5 @@
 ---
-abstract: 'The great new Catalyst::Plugin::Session::Store::CHI::CHI!'
+abstract: 'Use the CHI cache handler for session storage.'
 author:
   - 'Motortrak Ltd <duncan.garland@motortrak.com>'
 build_requires:
@@ -31,4 +31,4 @@ no_index:
     - inc
 requires:
   perl: '5.006'
-version: 0.001_003
+version: '0.002'

@@ -18,31 +18,44 @@ __PACKAGE__->mk_classdata(qw/_session_chi_chi_storage/);
 
 =head1 NAME
 
-Catalyst::Plugin::Session::Store::CHI::CHI - The great new Catalyst::Plugin::Session::Store::CHI::CHI!
+Catalyst::Plugin::Session::Store::CHI::CHI - Use the CHI cache handler for session storage.
 
 =head1 VERSION
 
-Version 0.001_003
+Version 0.002
 
 =cut
 
-our $VERSION = '0.001_003';
+our $VERSION = '0.002';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+This allow the CHI cache handler to be used to implement the session storage.
 
-Perhaps a little code snippet.
+It was written for a project which required Memcached as a cache in front of an Oracle database.
+However, it should handle most things that CHI can handle.
 
-    use Catalyst::Plugin::Session::Store::CHI::CHI;
+=head2 Example Configuration
 
-    my $foo = Catalyst::Plugin::Session::Store::CHI::CHI->new();
-    ...
+__PACKAGE__->config(
+
+    'Plugin::Session' => {
+        chi_chi => {
+            driver     => 'DBIC',
+            dbic_class => 'DB::Mbfl2Session',
+            l1_cache =>
+              { driver => 'Memcached::Fast', servers => ['127.0.0.1:11211'] },
+        },
+        expires            => 300,
+        expires_on_backend => 1,
+        cookie_secure      => 2,
+        cookie_expires     => 0      # 0 is session cookie
+    },
+);
 
 =head1 EXPORT
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+Nothing.
 
 =head1 SUBROUTINES/METHODS
 
@@ -169,6 +182,8 @@ L<http://search.cpan.org/dist/Catalyst-Plugin-Session-Store-CHI-CHI/>
 
 =head1 ACKNOWLEDGEMENTS
 
+This drew heavily on Catalyst::Plugin::Session::Store::CHI. In fact, it was originally
+intended to be a subclass of Catalyst::Plugin::Session::Store::CHI.
 
 =head1 LICENSE AND COPYRIGHT
 
